@@ -280,7 +280,7 @@
                     <div style="clear: both">
 
                     </div>
-                    <p>今天天气真好</p>
+                    <p>今天是十九号！</p>
 
                 </div>
                 <!--菜单列表-->
@@ -355,9 +355,8 @@
 
     <script type='text/javascript' src='libs/zepto.min.js' charset='utf-8'></script>
     <script type='text/javascript' src='libs/sm.min.js' charset='utf-8'></script>
-    <script src="index.js">
-    </script>
-    <script src="index.js">
+
+    <script>
         // URL里面的#后面的字符串是URL的哈希值。哈希值不会遂请求发送服务器，仅仅是指导浏览器当页面加载
         // 完成时显示页面的那个部分
         // window。location.hash可以访问点钱页面的哈希值。
@@ -381,8 +380,63 @@
 
         $("#night-shift-btn").click(function() {
             $(document.body).toggleClass("theme-dark");
-            $("#info-panel").toggleClass("theme-dark");
+            $("#info-panel").toggleClass("theme-white");
         })
+        var mylevel = 20;
+
+        function refreshlevel(level) {
+            var levArray = [];
+            while (level / 4 >= 1) {
+                var remainder = level % 4;
+                levArray.unshift(remainder);
+                level = Math.floor(level / 4);
+
+
+
+            }
+            levArray.unshift(level)
+            for (var i = 0; i < levArray.length; i++) {
+                var picName;
+                switch (levArray.length - i) {
+                    case 3:
+                        picName = "12.jpg"
+                        break;
+                    case 2:
+                        picName = "13.jpg"
+                        break;
+                    case 1:
+                        picName = "14.jpg"
+                        break;
+
+                    default:
+                        break;
+                }
+                for (var j = 0; j < levArray[i]; j++) {
+                    $("<img/>")
+                        .attr("src", "img/" + picName)
+                        .css("width", "0.8rem")
+                        .css("height", "0.8rem")
+                        .appendTo($("#self-level"))
+
+                }
+
+            }
+
+
+        }
+        refreshlevel(mylevel)
+
+        function openclose(e) {
+            if (e.target.isOpen) {
+                $(e.target).nextAll("li")
+                    .css("display", "none")
+                e.target.isOpen = false
+            } else {
+                $(e.target).nextAll("li")
+                    .css("display", "block")
+                e.target.isOpen = true
+            }
+        }
 
 
         // 十进制转换为别的进制除进制倒取余数。
