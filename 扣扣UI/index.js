@@ -1,4 +1,4 @@
- var mylevel = 50;
+ var mylevel = 20;
 
  function refreshlevel(level) {
      var levArray = [];
@@ -41,3 +41,15 @@
 
  }
  refreshlevel(mylevel)
+
+ function openclose(e) {
+     if (e.target.isOpen) {
+         $(e.target).nextAll("li")
+             .css("display", "none")
+         e.target.isOpen = false
+     } else {
+         $(e.target).nextAll("li")
+             .css("display", "block")
+         e.target.isOpen = true
+     }
+ }

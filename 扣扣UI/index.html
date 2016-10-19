@@ -43,9 +43,22 @@
     #self-name {
         float: left;
     }
+    
+    #bottom-menu {
+        font-size: 0.6rem;
+    }
+    
+    #aside-menu {
+        height: 12rem;
+        overflow-y: scroll;
+    }
+    
+    #list-block {
+        margin: 0;
+    }
 </style>
 
-<body class="theme-dark">
+<body>
     <div class="page-group">
         <!--消息页面-->
         <div class="page page-current " id="mg-page">
@@ -79,11 +92,58 @@
                 </a>
 
             </nav>
-            <div class="content close-panel">
-                <div class="content-block">
-                    这里是消息列表
+            <div class="bar bar-header-secondary">
+                <div class="searchbar">
+                    <a class="searchbar-cancel">取消</a>
+                    <div class="search-input">
+                        <label class="icon icon-search" for="search"></label>
+                        <input type="search" id='search' placeholder='输入关键字...' />
+                    </div>
                 </div>
             </div>
+
+
+            <div class="content close-panel">
+
+                <div class="list-block media-list" id="list-block">
+                    <ul>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">吻夏</div>
+                                    </div>
+                                    <div class="item-subtitle">在吗？租金什么时候交？</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">吻夏</div>
+                                    </div>
+                                    <div class="item-subtitle">在吗？租金什么时候交？</div>
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="item-content">
+                                <div class="item-media"><img src="http://gqianniu.alicdn.com/bao/uploaded/i4//tfscom/i3/TB10LfcHFXXXXXKXpXXXXXXXXXX_!!0-item_pic.jpg_250x250q60.jpg" style='width: 2.2rem;'></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">吻夏</div>
+                                    </div>
+                                    <div class="item-subtitle">在吗？租金什么时候交？</div>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
 
         </div>
         <!--上面是消息页面，下面是联系人页面-->
@@ -122,39 +182,39 @@
                     <div class="list-block contacts-block">
                         <div class="list-group">
                             <ul>
-                                <li class="list-group-title">A</li>
+                                <li onclick="openclose(event)" class="list-group-title">A</li>
                                 <li>
                                     <div class="item-content">
                                         <div class="item-inner">
-                                            <div class="item-title">标题1</div>
+                                            <div class="item-title">特别关心</div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="item-content">
                                         <div class="item-inner">
-                                            <div class="item-title">标题2</div>
+                                            <div class="item-title">常用群聊</div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="item-content">
                                         <div class="item-inner">
-                                            <div class="item-title">标题3</div>
+                                            <div class="item-title">我的好友</div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="item-content">
                                         <div class="item-inner">
-                                            <div class="item-title">标题4</div>
+                                            <div class="item-title">手机通讯录</div>
                                         </div>
                                     </div>
                                 </li>
                                 <li>
                                     <div class="item-content">
                                         <div class="item-inner">
-                                            <div class="item-title">标题5</div>
+                                            <div class="item-title">我的设备</div>
                                         </div>
                                     </div>
                                 </li>
@@ -199,6 +259,9 @@
                     </a>
 
                 </nav>
+
+
+
                 <div class="content">
                     <div class="content-block">
                         这里是动态页面
@@ -207,7 +270,7 @@
             </div>
         </div>
         <!--侧边栏-->
-        <div class="panel panel-left panel-reveal" id="info-panel">
+        <div class="panel panel-left panel-reveal theme-white" id="info-panel">
             <div class="content-block">
                 <div id="self-info">
                     <img id="self-head" src="img/1.jpg" />
@@ -221,7 +284,7 @@
 
                 </div>
                 <!--菜单列表-->
-                <div class="list-block">
+                <div class="list-block" id="aside-menu">
                     <ul>
                         <li class="item-content">
                             <div class="item-media"><i class="icon icon-gift"></i></div>
@@ -266,10 +329,22 @@
                             </div>
                         </li>
                     </ul>
-
-
-
                 </div>
+                <div class="row" id="botton-menu">
+                    <div class="col-33">
+                        <a href="" class="button-link"><i class="icon icon-settings"></i>设置</a>
+                    </div>
+                    <div class="col-33">
+                        <a href="" class="button-link" id="night-shift-btn"><i class="icon icon-star"></i>夜间</a>
+                    </div>
+                    <div class="col-33">
+                        <a href="" class="button-link">郑州<sup>℃</sup></a>
+                    </div>
+                </div>
+
+
+
+
             </div>
         </div>
 
@@ -304,7 +379,10 @@
 
         });
 
-
+        $("#night-shift-btn").click(function() {
+            $(document.body).toggleClass("theme-dark");
+            $("#info-panel").toggleClass("theme-dark");
+        })
 
 
         // 十进制转换为别的进制除进制倒取余数。
